@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
 });
 
 const StatItem = ({ stat, title }) => {
+  if (stat >= 1000) {
+    stat = (stat / 1000).toFixed(1) + 'k';
+  }
+
   return (
     <View style={styles.column}>
       <View style={styles.row}>
