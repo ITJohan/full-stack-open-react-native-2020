@@ -7,7 +7,7 @@ import Text from './Text';
 const styles = StyleSheet.create({
   column: {
     display: 'flex',
-    padding: 6,
+    padding: 10,
     backgroundColor: 'white',
     flexShrink: 1,
   },
@@ -22,6 +22,15 @@ const styles = StyleSheet.create({
   },
   statRow: {
     justifyContent: 'space-evenly',
+  },
+  tagContainer: {
+    backgroundColor: theme.colors.primary,
+    borderRadius: 5,
+    flexBasis: 'auto',
+    color: 'white',
+    padding: 5,
+    paddingTop: 3,
+    marginTop: 5,
   },
 });
 
@@ -39,7 +48,11 @@ const RepositoryItem = ({ repository }) => (
       <View style={styles.column}>
         <Text fontWeight="bold">{repository.fullName}</Text>
         <Text>{repository.description}</Text>
-        <Text>{repository.language}</Text>
+        <View style={styles.row}>
+          <View style={styles.tagContainer}>
+            <Text style={{ color: 'white' }}>{repository.language}</Text>
+          </View>
+        </View>
       </View>
     </View>
     <View style={{ ...styles.row, ...styles.statRow }}>
